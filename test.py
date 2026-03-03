@@ -1,9 +1,23 @@
 import os
+import getpass
+import sys
 
-print("Welcome to the Python programming world!")
-pipo = os.getlogin()
-print(f"Hello, {pipo}!")
-print("Welcome to the world of Python programming!")
-print("This is a simple script that greets the user by their login name.")
-print("Feel free to modify this script and add more functionality!")
-print("Happy coding!")
+def saluer(nom: str | None = None) -> None:
+    """
+    Affiche un message de salutation.
+
+    si `nom` est fourni, on salue cette personne ;
+    sinon on salue l'utilisateur connecté.
+    """
+    if nom:
+        print(f"Bonjour {nom} !")
+    else:
+        utilisateur = getpass.getuser()
+        print(f"Bonjour {utilisateur} !")
+
+if __name__ == "__main__":
+    # appel depuis la ligne de commande : premier argument facultatif
+    if len(sys.argv) > 1:
+        saluer(sys.argv[1])
+    else:
+        saluer()
