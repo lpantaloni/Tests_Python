@@ -11,7 +11,15 @@
             "program": "${file}",
             "console": "integratedTerminal",
             //"args": "${command:pickArgs}"
-            "args": ["Pipo Bimpo", " et sa famille"]
+            //"args": ["Pipo Bimpo", " et sa famille"]
+            "args": ["${input:myArgs}"]
         }
-    ]
+    ],
+    "inputs": [
+        {
+            "id": "myArgs",
+            "type": "promptString",
+            "description": "Enter the arguments for the program (comma separated)"
+        }
+    ] 
 }
